@@ -9,7 +9,7 @@
       "src": "client/package.json",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "build"
+        "distDir": "client/build"
       }
     }
   ],
@@ -22,9 +22,5 @@
       "src": "/(.*)",
       "dest": "client/build/index.html"
     }
-  ],
-  "env": {
-    "GEMINI_API_KEY": "@GEMINI_API_KEY",
-    "NODE_ENV": "production"
-  }
+  ]
 }
