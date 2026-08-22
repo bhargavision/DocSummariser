@@ -1,0 +1,17 @@
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# Server environment
+server/.env
+
+# Dependencies
+node_modules/
+
+# Build output
+client/build/
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
