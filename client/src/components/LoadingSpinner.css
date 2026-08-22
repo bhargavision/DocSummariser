@@ -1,0 +1,315 @@
+.loading-overlay {
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(13, 15, 22, 0.86);
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1000;
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.loading-container {
+  position: relative;
+
+  background: #1e2132;
+
+  border: 4px solid #0d0f16;
+
+  border-radius: 0.35rem;
+
+  padding: 3rem 2.5rem;
+
+  text-align: center;
+
+  min-width: 320px;
+
+  box-shadow:
+    10px 10px 0 #0d0f16;
+
+  animation:
+    loadingAppear 0.25s ease;
+}
+
+.loading-container::before {
+  content: "";
+
+  position: absolute;
+
+  width: 35px;
+  height: 35px;
+
+  top: -18px;
+  right: 30px;
+
+  background: #84a0c6;
+
+  border: 4px solid #0d0f16;
+
+  transform: rotate(10deg);
+}
+
+.loading-container::after {
+  content: "";
+
+  position: absolute;
+
+  width: 24px;
+  height: 24px;
+
+  bottom: -15px;
+  left: 35px;
+
+  background: #89b8c2;
+
+  border: 3px solid #0d0f16;
+
+  transform: rotate(-12deg);
+}
+
+@keyframes loadingAppear {
+  from {
+    opacity: 0;
+
+    transform:
+      translateY(15px)
+      scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+
+    transform:
+      translateY(0)
+      scale(1);
+  }
+}
+
+.spinner {
+  width: 58px;
+  height: 58px;
+
+  border: 5px solid #303446;
+
+  border-top-color: #84a0c6;
+
+  border-right-color: #89b8c2;
+
+  border-bottom-color: #9ec49f;
+
+  border-radius: 50%;
+
+  margin: 0 auto 1.5rem;
+
+  animation:
+    spin 0.9s linear infinite;
+
+  box-shadow:
+    5px 5px 0 #0d0f16;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-message {
+  font-size: 1.15rem;
+
+  color: #f1f1f4;
+
+  margin-bottom: 1.5rem;
+
+  font-weight: 900;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.5px;
+}
+
+
+.progress-bar {
+  width: 100%;
+
+  height: 10px;
+
+  background: #161821;
+
+  border: 3px solid #0d0f16;
+
+  border-radius: 0.15rem;
+
+  overflow: hidden;
+
+  margin-top: 1rem;
+
+  box-shadow:
+    3px 3px 0 #0d0f16;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #6f89ad 0%,
+      #84a0c6 45%,
+      #89b8c2 75%,
+      #9ec49f 100%
+    );
+
+  background-size: 200% 100%;
+
+  animation:
+    progress 2s ease-in-out infinite,
+    progressGlow 2s ease-in-out infinite;
+
+  position: relative;
+}
+
+.progress-fill::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 30%;
+
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.25);
+
+  transform: skewX(-20deg);
+
+  animation:
+    progressHighlight 1.5s ease-in-out infinite;
+}
+
+
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+
+  50% {
+    width: 100%;
+  }
+
+  100% {
+    width: 100%;
+  }
+}
+
+
+@keyframes progressGlow {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+
+@keyframes progressHighlight {
+  0% {
+    transform:
+      translateX(-120%)
+      skewX(-20deg);
+  }
+
+  100% {
+    transform:
+      translateX(400%)
+      skewX(-20deg);
+  }
+}
+
+
+@media (max-width: 480px) {
+  .loading-container {
+    min-width: 250px;
+
+    width: calc(100% - 2rem);
+
+    padding: 2.25rem 1.5rem;
+
+    border-width: 3px;
+
+    box-shadow:
+      6px 6px 0 #0d0f16;
+  }
+
+  .loading-container::before {
+    width: 28px;
+    height: 28px;
+
+    top: -14px;
+    right: 20px;
+
+    border-width: 3px;
+  }
+
+  .loading-container::after {
+    width: 20px;
+    height: 20px;
+
+    bottom: -12px;
+    left: 25px;
+
+    border-width: 2px;
+  }
+
+  .spinner {
+    width: 45px;
+    height: 45px;
+
+    border-width: 4px;
+
+    box-shadow:
+      4px 4px 0 #0d0f16;
+  }
+
+  .loading-message {
+    font-size: 0.95rem;
+  }
+
+  .progress-bar {
+    height: 8px;
+
+    border-width: 2px;
+
+    box-shadow:
+      2px 2px 0 #0d0f16;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  .loading-container {
+    animation: none;
+  }
+
+  .spinner,
+  .progress-fill,
+  .progress-fill::after {
+    animation: none;
+  }
+}
