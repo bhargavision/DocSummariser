@@ -1,0 +1,27 @@
+{
+  "name": "document-summary-assistant",
+  "version": "1.0.0",
+  "description": "Smart document summary application with PDF and image support",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"npm run server:dev\" \"npm run client:dev\"",
+    "server:dev": "cd server && nodemon index.js",
+    "client:dev": "cd client && npm start",
+    "server:start": "cd server && node index.js",
+    "client:build": "cd client && npm run build",
+    "build": "npm run client:build",
+    "start": "npm run server:start"
+  },
+  "keywords": [
+    "document",
+    "summary",
+    "pdf",
+    "ocr",
+    "ai"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^8.2.1"
+  }
+}
