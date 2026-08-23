@@ -505,7 +505,7 @@ Errors are displayed through the application's UI without exposing unnecessary s
 
 ---
 
-# ⚡ Performance
+# Performance
 
 Processing time depends on document size, image quality, and API response time.
 
