@@ -1,4 +1,4 @@
-# Document Summary Assistant 
+# [Document Summary Assistant](https://doc-summary-app-rho.vercel.app/) 
 
 A web application that turns PDFs and images into concise, readable summaries.
 
