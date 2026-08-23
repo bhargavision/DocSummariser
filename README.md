@@ -286,7 +286,7 @@ DocSummary/
 │
 ├── client/
 │   ├── public/
-    │   |-- index.html 
+    │   ├── index.html 
 │   ├── src/
 │   │   ├── components/
 │   │   ├── imgs/
@@ -303,7 +303,6 @@ DocSummary/
 │   ├── index.js
 │   └── package.json
 │
-├── .env.example
 ├── .gitignore
 ├── package.json
 ├── vercel.json
