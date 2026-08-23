@@ -286,6 +286,7 @@ DocSummary/
 │
 ├── client/
 │   ├── public/
+    │   |-- index.html 
 │   ├── src/
 │   │   ├── components/
 │   │   ├── imgs/
